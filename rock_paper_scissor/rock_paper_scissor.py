@@ -1,11 +1,16 @@
 import random
 
+ROCK = 'r',
+SCISSOR = 's',
+PAPER = 'p'
+
 emojis = {
-    "r": "🪨",
-    "p": "📃",
-    "s": "✂️",
+    ROCK: "🪨",
+    PAPER: "📃",
+    SCISSOR: "✂️",
 }
-choices = ("r", "p", "s")
+choices = tuple(emojis.keys())
+print(choices)
 
 def get_user_input():
     while True:
@@ -22,9 +27,9 @@ def print_detail(user_input, computer):
 def result(user_input,computer):
     if(user_input==computer):
         print("Draw")
-    elif((user_input=='s' and computer=='p') or
-       (user_input=='p' and computer=='r') or
-       (user_input=='r' and computer=='s')):
+    elif((user_input==SCISSOR and computer==PAPER) or
+       (user_input==PAPER and computer==ROCK) or
+       (user_input==ROCK and computer==SCISSOR)):
         print("you won! 🚀")
     else:
         print("you lose!")
